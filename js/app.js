@@ -73,15 +73,15 @@ function updateScore() {
 }
 function finishGame() {
     if(playOne.points <= 21 && playOne.points > playTwo.points){
-        alert("Play 1 Campeão");
+        swal("Play 1 Campeão", '', 'success');
     }else if (playTwo.points <= 21 && playTwo.points > playOne.points) {
-        alert("Play 2 Campeão");
+        swal("Play 2 Campeão", '', 'success');
     }else if( playOne.points > 21){
-        alert("Play 2 Campeão");
+        swal("Play 2 Campeão", '', 'success');
     }else if(playTwo.points > 21 ){
-        alert("Play 1 Campeão");
+        swal("Play 1 Campeão", '', 'success');
     }else{
-        alert("EMPATE!");
+        swal("EMPATE!");
     }
     setTimeout(resetGame, 2000)
 }
