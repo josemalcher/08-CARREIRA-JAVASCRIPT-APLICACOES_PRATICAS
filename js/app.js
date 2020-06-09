@@ -63,6 +63,40 @@ function updateScore() {
     } else {
         playTwo.points += letterSelected;
     }
+
+    if (playOne.points >= 21 || playTwo.points >= 21) {
+        finishGame();
+    }
+
     scores1D.innerText = playOne.points;
     scores2D.innerText = playTwo.points;
+}
+function finishGame() {
+    if(playOne.points <= 21 && playOne.points > playTwo.points){
+        alert("Play 1 Campeão");
+    }else if (playTwo.points <= 21 && playTwo.points > playOne.points) {
+        alert("Play 2 Campeão");
+    }else if( playOne.points > 21){
+        alert("Play 2 Campeão");
+    }else if(playTwo.points > 21 ){
+        alert("Play 1 Campeão");
+    }else{
+        alert("EMPATE!");
+    }
+    setTimeout(resetGame, 2000)
+}
+
+function resetGame() {
+    letterSelected = 0;
+    playerActive = 1;
+
+    playOne = {
+        points: 0,
+    }
+
+    playTwo = {
+        points: 0,
+    }
+    updateScore()
+    showLetter()
 }
