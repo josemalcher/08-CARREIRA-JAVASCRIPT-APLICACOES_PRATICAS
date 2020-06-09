@@ -29,7 +29,7 @@
     </div>
     <div class="row">
         <div class="col controls">
-            <button class="btn btn-success">Pular</button>
+            <button class="btn btn-success" onclick="changePlayer()">Pular</button>
             <button class="btn btn-primary">Finalizar Jogo</button>
             <button class="btn btn-danger">Resetar</button>
         </div>
@@ -37,7 +37,7 @@
     <hr>
     <div class="row">
         <div class="col">
-            <a href=""><img src="imgs/baralho-cartas.png" alt="baralho" class="letters"></a>
+            <a href="#" onclick="selectLetter(event)"><img src="imgs/baralho-cartas.png" alt="baralho" class="letters"></a>
         </div>
         <div class="col" id="letter-selected" style="display: none"><a href=""><img src="imgs/carts/1.png" alt="" class="letter-selected"></a></div>
     </div>
