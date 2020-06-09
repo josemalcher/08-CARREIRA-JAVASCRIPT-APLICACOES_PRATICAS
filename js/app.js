@@ -5,15 +5,15 @@ let playOne = {
     points: 0,
 }
 
-let platyTwo = {
+let playTwo = {
     points: 0,
 }
 
 let play1D = document.getElementById("player1");
 let play2D = document.getElementById("player2");
 
-let scores1 = document.getElementById("pscores1");
-let scores2 = document.getElementById("pscores2");
+let scores1D = document.getElementById("scores1");
+let scores2D = document.getElementById("scores2");
 
 let letterSelectdD = document.getElementById('letter-selected');
 
@@ -31,6 +31,11 @@ function changePlayer() {
 function selectLetter(event) {
     letterSelected = Math.floor((Math.random() * 13) + 1);
     console.log(letterSelected);
+    showLetter();
+    updateScore();
+
+
+
     /* Tira o efeito do link */
     event = event || window.event;
     if (event.preventDefault) {
@@ -40,4 +45,24 @@ function selectLetter(event) {
         event.returnValue();
     }
     return false
+}
+
+function showLetter() {
+    if (letterSelected == 0) {
+        letterSelectdD.style.display = 'none';
+    } else {
+        let src = "imgs/carts/" + letterSelected + ".png";
+        letterSelectdD.setAttribute('src', src);
+        letterSelectdD.style.display = 'block'
+    }
+}
+
+function updateScore() {
+    if (playerActive == 1) {
+        playOne.points += letterSelected;
+    } else {
+        playTwo.points += letterSelected;
+    }
+    scores1D.innerText = playOne.points;
+    scores2D.innerText = playTwo.points;
 }
